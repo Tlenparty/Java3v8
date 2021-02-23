@@ -6,31 +6,37 @@ public class Lesson2 {
      * (порядок – ABСABСABС). Используйте wait/notify/notifyAll.
      */
 
-    public static int COUNT = 5;
+
 
 
     public static void main(String[] args) {
+        PrintLetters printLetters = new PrintLetters();
 
         // Первый поток
         new Thread(() -> {
-            for (int i = 0; i < COUNT; i++) {
-                System.out.print("A");
+            try {
+                printLetters.printLetterA();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
-
         }).start();
 
         // Второй поток
         new Thread(() -> {
-            for (int i = 0; i < COUNT; i++) {
-                System.out.print("B");
+            try {
+                printLetters.printLetterB();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
         }).start();
 
 
         // Третий поток
         new Thread(() -> {
-            for (int i = 0; i < COUNT; i++) {
-                System.out.print("C");
+            try {
+                printLetters.printLetterC();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
         }).start();
     }
