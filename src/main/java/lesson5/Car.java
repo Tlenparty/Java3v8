@@ -1,7 +1,14 @@
 package lesson5;
 
-public class Car implements Runnable{
+import java.util.concurrent.BrokenBarrierException;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.CyclicBarrier;
+
+public class Car implements Runnable {
     private static int CARS_COUNT;
+    CyclicBarrier cb = new CyclicBarrier(4);
+    CountDownLatch cdl = new CountDownLatch(4);
+
     static {
         CARS_COUNT = 0;
     }
@@ -9,13 +16,16 @@ public class Car implements Runnable{
     private Race race;
     private int speed;
     private String name;
-    public String getName(){
+
+    public String getName() {
         return name;
     }
-    public int getSpeed(){
+
+    public int getSpeed() {
         return speed;
     }
-    public Car(Race race, int speed){
+
+    public Car(Race race, int speed) {
         this.race = race;
         this.speed = speed;
         CARS_COUNT++;
@@ -26,13 +36,25 @@ public class Car implements Runnable{
     public void run() {
         try {
             System.out.println(this.name + " готовится!");
-            Thread.sleep(500 + (int)(Math.random() * 800));
+            Thread.sleep(500 + (int) (Math.random() * 800));
             System.out.println(this.name + " готов");
         } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        try {
+            MainClass.cdlStart.countDown();
+            MainClass.cb.await();
+        } catch (InterruptedException | BrokenBarrierException e) {
             e.printStackTrace();
         }
         for (int i = 0; i < race.getStages().size(); i++) {
             race.getStages().get(i).go(this);
         }
+        if(Race.raceWin){
+            Race.raceWin = false;
+            System.out.println(name + " Победил!");
+        }
+        MainClass.cdlFinish.countDown();
+
     }
 }

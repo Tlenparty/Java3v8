@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Race {
+    public static volatile boolean raceWin = true;
     public ArrayList<Stage> stages;
     public ArrayList<Stage> getStages(){
         return stages;
