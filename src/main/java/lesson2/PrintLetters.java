@@ -3,26 +3,33 @@ package lesson2;
 public class PrintLetters {
     private final int COUNT = 5;
 
-    public void  printLetterA(){
+    public synchronized void printLetterA() throws InterruptedException {
 
         for (int i = 0; i < COUNT; i++) {
-            System.out.println("A");
+            System.out.print("A");
+            wait();
+            Thread.sleep(1000);
+            notify();
         }
     }
 
-    public void printLetterB(){
+    public synchronized void printLetterB() throws InterruptedException {
 
         for (int i = 0; i < COUNT; i++) {
-            System.out.println("B");
+            System.out.print("B");
+            wait();
+            Thread.sleep(1000);
+            notify();
         }
     }
 
-    public void printLetterC(){
+    public synchronized void printLetterC() throws InterruptedException {
 
         for (int i = 0; i < COUNT; i++) {
-            System.out.println("C");
+            System.out.print("C");
+            notify();
+            Thread.sleep(1000);
+            wait();
         }
     }
-
-
 }
