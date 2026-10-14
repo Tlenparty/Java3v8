@@ -1,4 +1,4 @@
-package lesson2;
+package waitnotify;
 
 public class PrintLetters {
     private final int COUNT = 5;

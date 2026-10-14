@@ -1,4 +1,4 @@
-package lesson5;
+package race;
 
 import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CountDownLatch;
@@ -13,7 +13,7 @@ import java.util.concurrent.CyclicBarrier;
  * Можете корректировать классы (в т.ч. конструктор машин) и добавлять объекты классов из пакета util.concurrent.
  */
 
-public class MainClass {
+public class Main {
     public static final int CARS_COUNT = 4;
      static CyclicBarrier cb = new CyclicBarrier(CARS_COUNT);
      static CountDownLatch cdlStart = new CountDownLatch(CARS_COUNT);

@@ -1,4 +1,4 @@
-package lesson5;
+package race;
 
 import java.util.concurrent.Semaphore;
 

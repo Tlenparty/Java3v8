@@ -1,6 +1,6 @@
-package lesson2;
+package waitnotify;
 
-public class Lesson2 {
+public class Main {
     /**
      * Создать три потока, каждый из которых выводит определенную букву (A, B и C) 5 раз
      * (порядок – ABСABСABС). Используйте wait/notify/notifyAll.

@@ -1,4 +1,4 @@
-package lesson7;
+package testframework;
 
 
 import java.lang.reflect.InvocationTargetException;

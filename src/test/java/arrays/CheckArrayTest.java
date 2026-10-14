@@ -1,6 +1,5 @@
-package lesson6.text;
+package arrays;
 
-import lesson6.Lesson6;
 import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -12,22 +11,22 @@ class CheckArrayTest {
      */
     @Test
     public void testCheckArray1(){
-        Assertions.assertTrue(Lesson6.checkArray(new int []{1,4,1}));
+        Assertions.assertTrue(ArrayUtils.checkArray(new int []{1,4,1}));
     }
 
     @Test
     public void testCheckArray2(){
-        Assertions.assertTrue(Lesson6.checkArray(new int []{1,1,1}));
+        Assertions.assertTrue(ArrayUtils.checkArray(new int []{1,1,1}));
     }
 
     @Test
     public void testCheckArray3(){
-        Assertions.assertFalse(Lesson6.checkArray(new int []{4,4,4}));
+        Assertions.assertFalse(ArrayUtils.checkArray(new int []{4,4,4}));
     }
 
     @Test
     public void testCheckArray4(){
-        Assertions.assertFalse(Lesson6.checkArray(new int []{-1,4,1}));
+        Assertions.assertFalse(ArrayUtils.checkArray(new int []{-1,4,1}));
     }
 
 

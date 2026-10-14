@@ -1,4 +1,4 @@
-package lesson5;
+package race;
 
 import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CountDownLatch;
@@ -42,8 +42,8 @@ public class Car implements Runnable {
             e.printStackTrace();
         }
         try {
-            MainClass.cdlStart.countDown();
-            MainClass.cb.await();
+            Main.cdlStart.countDown();
+            Main.cb.await();
         } catch (InterruptedException | BrokenBarrierException e) {
             e.printStackTrace();
         }
@@ -54,7 +54,7 @@ public class Car implements Runnable {
             Race.raceWin = false;
             System.out.println(name + " Победил!");
         }
-        MainClass.cdlFinish.countDown();
+        Main.cdlFinish.countDown();
 
     }
 }
